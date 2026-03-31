@@ -1,40 +1,29 @@
 import os
 
-# ──────────────────────────────────────────────
-# Paths
-# ──────────────────────────────────────────────
+# paths
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, "data")
 DB_PATH = os.path.join(DATA_DIR, "attendance.db")
 MODEL_DIR = os.path.join(BASE_DIR, "face_models")
 
-# Ensure required directories exist
 os.makedirs(DATA_DIR, exist_ok=True)
 os.makedirs(MODEL_DIR, exist_ok=True)
 
-# ──────────────────────────────────────────────
-# Face Engine Settings
-# ──────────────────────────────────────────────
-MODEL_NAME = "buffalo_l"              # InsightFace model pack
-SIMILARITY_THRESHOLD = 0.4           # Cosine similarity cutoff for a match
-DET_SIZE = (640, 640)                # Detection input resolution
+# face engine
+MODEL_NAME = "buffalo_l"
+SIMILARITY_THRESHOLD = 0.4
+DET_SIZE = (640, 640)
 
-# ──────────────────────────────────────────────
-# Camera Settings
-# ──────────────────────────────────────────────
+# camera
 DEFAULT_CAMERA_INDEX = 0
 CAMERA_FPS = 30
-FRAME_SKIP = 3                       # Run inference every Nth frame
+FRAME_SKIP = 3  # run inference every Nth frame
 
-# ──────────────────────────────────────────────
-# Attendance Rules
-# ──────────────────────────────────────────────
-SCAN_COOLDOWN_SECONDS = 30           # Same person can't re-trigger within this window
-LATE_THRESHOLD_HOUR = 9             # Hour after which check-in counts as "Late"
+# attendance rules
+SCAN_COOLDOWN_SECONDS = 30
+LATE_THRESHOLD_HOUR = 9  # 9 AM
 
-# ──────────────────────────────────────────────
-# UI Constants
-# ──────────────────────────────────────────────
+# ui
 APP_TITLE = "FaceAttend — Biometric Attendance System"
 WINDOW_WIDTH = 1100
 WINDOW_HEIGHT = 700
